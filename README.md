@@ -1,4 +1,5 @@
 
+
 # Dialogue Finder
 
 > **Dialogue Finder** is a Flask web application that finds a dialogue inside a video using speech-to-text transcription and fuzzy text matching. It takes a video URL and a dialogue as input, processes the video, generates a transcript using Whisper, and searches the transcript for the closest match.
@@ -13,7 +14,8 @@ The idea behind this project is to make the process simpler:
 
 The application handles the video processing, transcription and dialogue matching automatically.
 
----
+<img width="1920" height="1020" alt="Screenshot 2026-08-26 204504" src="https://github.com/user-attachments/assets/0f079d78-3097-475f-8fbc-12903129bb84" />
+
 
 ## How It Works
 
