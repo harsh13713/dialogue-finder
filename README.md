@@ -30,29 +30,8 @@ The application follows this basic pipeline:
 
 ### Overall Flow
 
-```text
-User
-  │
-  ▼
-Enter Video URL + Dialogue
-  │
-  ▼
-Download / Retrieve Video
-  │
-  ▼
-Extract Audio
-  │
-  ▼
-Whisper Transcription
-  │
-  ▼
-Transcript
-  │
-  ▼
-Fuzzy Dialogue Matching
-  │
-  ▼
-Result
+
+<img width="1376" height="768" alt="Gemini_Generated_Image_xyqrhxxyqrhxxyqr" src="https://github.com/user-attachments/assets/1e3dc31a-49d6-44e0-93d2-b133915c0a1c" />
 
 
 ---
@@ -141,7 +120,7 @@ dialogue_finder/
 ### 1. Clone the repository
 
 ```bash
-git clone <YOUR_PUBLIC_GITHUB_REPOSITORY_URL>
+git clone https://github.com/harsh13713/dialogue-finder.git
 cd dialogue_finder
 ```
 
@@ -337,6 +316,6 @@ The prompts used during development are available in `prompts.txt`.
 
 **Harshini Ganga TS**
 
-Built as part of the campus placement problem-solving challenge.
+Built as part of the Quest1 placement problem-solving round.
 
 
