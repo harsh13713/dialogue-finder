@@ -66,7 +66,7 @@ The application follows this basic pipeline:
 
 * HTML
 * CSS
-* Jinja2 templates
+
 
 ---
 
