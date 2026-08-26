@@ -23,7 +23,8 @@ input to the next stage.
 
 The overall flow of the application is shown below.
 
-![System Flow](docs/system-flow.png)
+<img width="1376" height="768" alt="Gemini_Generated_Image_xyqrhxxyqrhxxyqr" src="https://github.com/user-attachments/assets/50f5a8b6-40b2-4566-9a3a-59948990033a" />
+
 
 **Figure 1: Overall system flow of Dialogue Finder**
 
