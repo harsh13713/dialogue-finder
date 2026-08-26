@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dialogue Finder</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>Dialogue Finder</h1>
+
+        <p>
+            Find the exact moment a dialogue appears
+            in a video.
+        </p>
+
+    </div>
+
+
+    <!-- ----------------------------------------- -->
+    <!-- Search form -->
+    <!-- ----------------------------------------- -->
+
+    <form
+        method="POST"
+        class="search-form"
+    >
+
+        <label>
+            Video URL
+        </label>
+
+        <input
+            type="text"
+            name="video_url"
+            placeholder="Enter YouTube or video URL"
+            value="{{ request.form.get('video_url', '') }}"
+            required
+        >
+
+
+        <label>
+            Dialogue
+        </label>
+
+        <textarea
+            name="dialogue"
+            placeholder="Enter the dialogue you want to find"
+            required
+        >{{ request.form.get('dialogue', '') }}</textarea>
+
+
+        <button type="submit">
+            Find Dialogue
+        </button>
+
+    </form>
+
+
+    <!-- ----------------------------------------- -->
+    <!-- Error -->
+    <!-- ----------------------------------------- -->
+
+    {% if error %}
+
+        <div class="error">
+
+            {{ error }}
+
+        </div>
+
+    {% endif %}
+
+
+    <!-- ----------------------------------------- -->
+    <!-- Result -->
+    <!-- ----------------------------------------- -->
+
+    {% if result %}
+
+        <div class="result">
+
+            <h2>Match Found</h2>
+
+
+            <div class="result-item">
+
+                <span>Timestamp</span>
+
+                <strong>
+                    {{ result.timestamp }}
+                </strong>
+
+            </div>
+
+
+            <div class="result-item">
+
+                <span>Frame</span>
+
+                <strong>
+                    {{ result.frame_number }}
+                </strong>
+
+            </div>
+
+
+            <div class="dialogue">
+
+                <span>Extracted Dialogue</span>
+
+                <p>
+                    "{{ result.segment.text }}"
+                </p>
+
+            </div>
+
+
+            <!-- --------------------------------- -->
+            <!-- Frame image -->
+            <!-- --------------------------------- -->
+
+            {% if result.frame_image %}
+
+                <div class="frame-section">
+
+                    <h3>
+                        First Frame of Dialogue
+                    </h3>
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename=result.frame_image
+                        ) }}"
+                        alt="Dialogue frame"
+                        class="frame-image"
+                    >
+
+                </div>
+
+            {% endif %}
+
+
+            <div class="scores">
+
+                <div>
+                    Similarity:
+                    {{ "%.1f"|format(result.score) }}%
+                </div>
+
+                <div>
+                    Word Coverage:
+                    {{ "%.1f"|format(result.coverage) }}%
+                </div>
+
+                <div>
+                    Average Word Similarity:
+                    {{ "%.1f"|format(
+                        result.average_word_score
+                    ) }}%
+                </div>
+
+            </div>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>

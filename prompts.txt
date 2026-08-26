@@ -1,0 +1,165 @@
+PROMPTS USED DURING DEVELOPMENT
+================================
+
+I used AI mainly as a problem-solving and debugging assistant. I did not ask for
+the complete solution in one go. I used multiple prompts while understanding
+the requirements, deciding the approach, implementing different parts, and
+debugging issues.
+
+1. Problem understanding
+------------------------
+
+"First help me understand the problem statement properly. What exactly is the
+expected input and output, and what are the important requirements I should
+not miss?"
+
+2. Breaking down the problem
+----------------------------
+
+"Can you break this problem into smaller parts? I want to understand what the
+application actually needs to do before I start coding."
+
+3. Thinking about the overall approach
+--------------------------------------
+
+"Based on the problem, what would be a reasonable overall architecture for
+this application? I am thinking about taking a video input, processing it,
+getting the dialogue/transcript and then searching for the required dialogue."
+
+4. Video input handling
+-----------------------
+
+"What is a reliable way to handle a video URL in Python? I need to download
+the video locally before processing it, and I also want to handle failures
+properly."
+
+5. Understanding yt-dlp
+-----------------------
+
+"Explain how yt-dlp can be used here. I don't want to blindly copy code;
+explain what parts of the downloaded video information I actually need."
+
+6. Audio extraction
+-------------------
+
+"I need to extract only the audio from the downloaded video for speech
+recognition. What is the simplest reliable way to do this?"
+
+7. FFmpeg requirement
+---------------------
+
+"Why do I need ffmpeg separately if I am already using Python libraries?
+Explain what ffmpeg is doing in this project."
+
+8. Speech-to-text approach
+--------------------------
+
+"I need to convert the extracted audio into text. Compare Whisper and
+faster-whisper for this project and explain which one would make more sense
+for a simple CPU-based application."
+
+9. Whisper implementation
+-------------------------
+
+"How should I load the Whisper model? I don't want the model to be loaded
+again every time a user searches for a dialogue."
+
+10. Transcript handling
+-----------------------
+
+"Once I get the Whisper transcript, what is a good way to store it so that
+I can search for a dialogue later without repeatedly transcribing the video?"
+
+11. Dialogue search
+------------------
+
+"I don't want the user to have to type the exact dialogue. What kind of
+matching approach can I use so that small differences in spelling or wording
+still give a useful result?"
+
+12. Fuzzy matching
+------------------
+
+"Explain how RapidFuzz works and whether it would be suitable for matching a
+user's dialogue query against transcript text."
+
+13. OpenCV / frame extraction
+----------------------------
+
+"If I find the approximate location of a dialogue in the transcript, how can
+I connect that back to the video and get the relevant timestamp/frame?"
+
+14. Handling timestamps
+-----------------------
+
+"How should I represent the timestamp of the matching dialogue? I want the
+user to be able to understand where in the video the dialogue occurs."
+
+15. Caching
+-----------
+
+"The same video might be searched more than once. How can I avoid downloading
+and processing the same video repeatedly? Suggest a simple caching approach
+without making the project unnecessarily complicated."
+
+16. Error handling
+------------------
+
+"What are the main things that can go wrong in this pipeline? For example,
+invalid URLs, download failures, missing audio, transcription failures or
+a dialogue not being found. How should I handle these in Flask?"
+
+17. Flask structure
+-------------------
+
+"Help me structure the Flask application so that the video processing,
+transcription and dialogue searching logic are not all mixed together in
+app.py."
+
+18. Debugging an issue
+----------------------
+
+"I am getting this error: [actual error]. Explain what is causing it and
+suggest the smallest change needed to fix it."
+
+19. Checking the complete flow
+-----------------------------
+
+"Can you walk through the complete flow of my application from the moment the
+user enters a video URL and dialogue to the final result? I want to check
+whether I have missed any step."
+
+20. Edge cases
+--------------
+
+"Review my current implementation and point out edge cases I should test.
+Don't rewrite the whole application; just tell me what could fail or behave
+unexpectedly."
+
+21. Performance review
+---------------------
+
+"My application works, but video download and transcription can take time.
+Look at the current approach and tell me where the main bottlenecks are and
+what improvements are practical for this assignment."
+
+22. Code review
+---------------
+
+"Review my current code as if you were evaluating it for a technical
+submission. Point out anything that is unnecessarily complicated, poorly
+structured or difficult for another developer to understand."
+
+23. Final cleanup
+----------------
+
+"Now that the functionality is working, help me clean up the code without
+changing the behaviour. I want the final version to be simple and easy to
+explain during an interview."
+
+24. Final submission review
+---------------------------
+
+"Review the project from a recruiter's perspective. What would you look for
+first in the repository, and what parts of my implementation should I be
+ready to explain during the interview?"
